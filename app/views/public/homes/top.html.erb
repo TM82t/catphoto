@@ -13,12 +13,12 @@
 		</div>
 		<h2 class="section-ttl">新着写真</h2>
 		<div class="posts">
-			<%# @items.each do |item| %>
-				<%#= link_to item_path(item) do %>
-					<%#= image_tag item.get_image %>
-					<h5><%#= item.genre.name %></h5>
-					<p><%#= item.name %></p>
-					<p><%#= item.with_tax_price %></p>
+			<%# @posts.each do |post| %>
+				<%#= link_to post_path(post) do %>
+					<%#= image_tag post.get_image %>
+					<h5><%#= post.genre.name %></h5>
+					<p><%#= post.name %></p>
+					<p><%#= post.infmation %></p>
 				<%# end %>
 			<%# end %>
 		</div>
