@@ -59,6 +59,10 @@ ActiveRecord::Schema.define(version: 2023_06_19_125109) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string "name"
+    t.string "postal_code", null: false
+    t.string "address", null: false
+    t.string "telephone_number", null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_end_users_on_email", unique: true
@@ -71,6 +75,8 @@ ActiveRecord::Schema.define(version: 2023_06_19_125109) do
   end
 
   create_table "favorites", force: :cascade do |t|
+    t.integer "end_user_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -81,6 +87,8 @@ ActiveRecord::Schema.define(version: 2023_06_19_125109) do
   end
 
   create_table "follows", force: :cascade do |t|
+    t.integer "follower_id", null: false
+    t.integer "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -91,11 +99,18 @@ ActiveRecord::Schema.define(version: 2023_06_19_125109) do
   end
 
   create_table "post_comments", force: :cascade do |t|
+    t.text "comment"
+    t.integer "user_id"
+    t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "posts", force: :cascade do |t|
+    t.integer "end_user_id"
+    t.string "name", null: false
+    t.text "introduction", null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

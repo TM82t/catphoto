@@ -6,7 +6,7 @@
 	<h3>
 		登録情報
 		<%= link_to "編集する", edit_information_path, class: "btn btn-success ml2" %>
-		<%= link_to "パスワードを変更する", edit_customer_registration_path, class: "btn btn-success ml2" %>
+		<%= link_to "パスワードを変更する", edit_end_user_registration_path, class: "btn btn-success ml2" %>
 	</h3>
 	<table class="customer_info mb3">
 		<thead>
@@ -21,19 +21,19 @@
 			</tr>
 			<tr>
 				<td>メールアドレス</td>
-				<td colspan="2"><%= @customer.email %></td>
+				<td colspan="2"><%= @end_user.email %></td>
 			</tr>
 			<tr>
 				<td>郵便番号</td>
-				<td colspan="2"><%= @customer.postal_code %></td>
+				<td colspan="2"><%= @end_user.postal_code %></td>
 			</tr>
 			<tr>
 				<td>住所</td>
-				<td colspan="2"><%= @customer.address %></td>
+				<td colspan="2"><%= @end_user.address %></td>
 			</tr>
 			<tr>
 				<td>電話番号</td>
-				<td colspan="2"><%= @customer.telephone_number %></td>
+				<td colspan="2"><%= @end_user.telephone_number %></td>
 			</tr>
 		</tbody>
 	</table>

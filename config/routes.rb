@@ -33,6 +33,13 @@ Rails.application.routes.draw do
      resource :favorites, only: [:create, :destroy]
     end
 
+    #フォロー機能
+    resources :end_users do
+      resource :follows, only: [:create, :destroy]
+      get 'followings' => 'follows#followings', as: 'followings'
+      get 'followers' => 'follows#followers', as: 'followers'
+    end
+
     #通知
     resources :post_comment_notifications, only: :index
     resources :favorite_notifications, only: :index
