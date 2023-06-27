@@ -2,22 +2,22 @@
   <% if flash[:notice] %>
     <p class="text-active"><%= flash[:notice] %></p>
   <% end %>
-	<h2 class="section-ttl">マイページ</h2>
+	<h2 class="title">マイページ</h2>
 	<h3>
 		登録情報
-		<%= link_to "編集する", edit_information_path, class: "btn btn-success ml2" %>
+		
+		<%= link_to "編集する", edit_information_path(@end_user), class: "btn btn-primary ml2" %>
 		<%= link_to "パスワードを変更する", edit_end_user_registration_path, class: "btn btn-success ml2" %>
 	</h3>
-	<table class="customer_info mb3">
+	<table class="end_user_info">
 		<thead>
-			<th></th>
 			<th></th>
 			<th></th>
 		</thead>
 		<tbody>
 			<tr>
 				<td>ユーザー名</td>
-				<td>(名) <%= @end_user.name %></td>
+				<td><%= @end_user.name %></td>
 			</tr>
 			<tr>
 				<td>メールアドレス</td>

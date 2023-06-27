@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+      <h3><%= @end_user.name %>さんの会員詳細</h3>
+          <table>
+            <body>
+              <tr>
+                <th>ユーザーID</th>
+                <td><%= @end_user.id %></td>
+              </tr>
+              <tr>
+                <th>ユーザー名</th>
+                <td><%= @end_user.name %></td>
+              </tr>
+              <tr>
+                <th>郵便番号</th>
+                <td><%= @end_user.postal_code %></td>
+              </tr>
+              <tr>
+                <th>住所</th>
+                <td><%= @end_user.address %></td>
+              </tr>
+              <tr>
+                <th>電話番号</th>
+                <td><%= @end_user.telephone_number %></td>
+              </tr>
+              <tr>
+                <th>メールアドレス</th>
+                <td><%= @end_user.email %></td>
+              </tr>
+              <tr>
+                <th>会員ステータス</th>
+                <td><%= @end_user.is_deleted ? "退会" : "有効" %></td>
+              </tr>
+            </body>
+          </table>
+        <%= link_to "編集する", edit_admin_end_user_path(@end_user.id), class: "btn btn-success mb-4" %>
+        <%= link_to "投稿一覧を見る", admin_root_path, class: "btn btn-primary mb-4" %>
+      </div>
+    </div>
+</div>

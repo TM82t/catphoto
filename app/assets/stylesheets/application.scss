@@ -52,6 +52,9 @@ select {
 .jpostal_address {
   width: 480px;
 }
+.title {
+  padding: 10px;
+}
 header {
   width: 100vw;
   position: fixed;
@@ -161,8 +164,8 @@ table.has_border {
     }
   }
 }
-table.customer_info {
-  width: 100%;
+table.end_user_info {
+  width: 50%;
   thead {
     th:first-child {
       width: 30%;

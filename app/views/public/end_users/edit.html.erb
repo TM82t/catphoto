@@ -1,7 +1,7 @@
 <section class="inner">
 	<h2 class="section-ttl">会員情報編集</h2>
-	<%= form_with model:end_user, url: update_information_path do |f| %>
-		<%= render 'layouts/error_messages', resource: @end_user %>
+	<%= form_with model:@end_user, url: update_information_path do |f| %>
+		<%#= render 'layouts/error_messages', resource: @end_user %>
 		<table class="customer_info customer_form">
 			<thead>
 				<th></th>
@@ -10,7 +10,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%= f.label :name, "ユーザー名" class: "end_user_name" %></td>
+					<td><%= f.label :name, "ユーザー名" %></td>
 					<td><%= f.text_field :name, :placeholder =>"#{@end_user.name}" %></td>
 				</tr>
 				<tr>
@@ -30,7 +30,7 @@
 					<td colspan="2"><%= f.text_field :telephone_number, :placeholder =>"#{@end_user.telephone_number}" %></td>
 				</tr>
 				<tr>
-					<td colspan="2"><%= f.submit "編集内容を保存する", class: "btn btn-primary" %></td>
+					<td colspan="2"><%= f.submit "編集内容を保存する", class: "btn btn-success" %></td>
 					<td><%= link_to "退会する", confirm_unsubscribe_path, class: "btn btn-danger" %></td>
 				</tr>
 			</tbody>

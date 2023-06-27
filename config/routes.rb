@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'end_users/mypage' => 'end_users#show', as: 'mypage'
     # end_users/editのようにするとdeviseのルーティングとかぶってしまうためinformationを付け加えている。
-    get 'end_users/information/edit' => 'end_useres#edit', as: 'edit_information'
+    get 'end_users/information/edit' => 'end_users#edit', as: 'edit_information'
     patch 'end_users/information' => 'end_users#update', as: 'update_information'
     get 'end_users/unsubscribe' => 'end_users#unsubscribe', as: 'confirm_unsubscribe'
     put 'end_users/information' => 'end_users#update'
