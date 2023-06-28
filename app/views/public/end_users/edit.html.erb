@@ -18,14 +18,6 @@
 					<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@end_user.email}" %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :postal_code, "郵便番号(ハイフンなし7桁)" %></td>
-					<td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@end_user.postal_code}", class: "jpostal_code" %></td>
-				</tr>
-				<tr>
-					<td><%= f.label :address, "住所" %></td>
-					<td colspan="2"><%= f.text_field :address, :placeholder =>"#{@end_user.address}", class: "jpostal_address" %></td>
-				</tr>
-				<tr>
 					<td><%= f.label :telephone_number, "電話番号(ハイフンなし10or11桁)" %></td>
 					<td colspan="2"><%= f.text_field :telephone_number, :placeholder =>"#{@end_user.telephone_number}" %></td>
 				</tr>

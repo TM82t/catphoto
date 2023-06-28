@@ -3,7 +3,7 @@ class Admin::EndUsersController < ApplicationController
   before_action :ensure_end_user, only: [:show, :edit, :update]
 
   def index
-    @end_users = EndUser.page(params[:page])
+    @end_users = EndUser.page(params[:page]).per(10)
   end
 
   def show
@@ -13,13 +13,13 @@ class Admin::EndUsersController < ApplicationController
   end
 
   def update
-    @end_user.update(end_user_params) ? (redirect_to admin_end_user_path(@end_user)) : (render :edit)
+    @end_user.update(end_user_params) ? (redirect_to admin_end_user_index_path(@end_user)) : (render :edit)
   end
 
   private
 
   def end_user_params
-    params.require(:end_user).permit(:name, :email)
+    params.require(:end_user).permit(:name, :email, :is_active)
   end
 
   def ensure_end_user
