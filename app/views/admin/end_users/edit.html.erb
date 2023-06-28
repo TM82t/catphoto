@@ -1,7 +1,7 @@
 <section class="inner">
 	<h2 class="section-ttl"><%= @end_user.name %> さんの会員情報編集</h2>
 	<%= form_with model:@end_user, url: admin_end_user_path(@end_user) do |f| %>
-		<%= render 'layouts/error_messages', resource: @end_user %>
+		<%#= render 'layouts/error_messages', resource: @end_user %>
 		<table class="customer_info customer_form">
 			<thead>
 				<th></th>
@@ -11,19 +11,11 @@
 			<tbody>
 				<tr>
 					<td>ユーザー名</td>
-					<td><%= f.label :name, class: "customer_name", :placeholder =>"#{@end_user.name}" %> </td>
+					<td><%= f.text_field :end_user_name, class: "customer_name", :placeholder =>"#{@end_user.end_user_name}" %> </td>
 				</tr>
 				<tr>
 					<td>メールアドレス</td>
 					<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@end_user.email}" %></td>
-				</tr>
-				<tr>
-					<td>郵便番号(7桁)</td>
-					<td colspan="2"><%= f.text_field :postal_code, :placeholder =>"#{@end_user.postal_code}" %></td>
-				</tr>
-				<tr>
-					<td>住所</td>
-					<td colspan="2" class="field_for_address"><%= f.text_field :address, :placeholder =>"#{@end_user.address}" %></td>
 				</tr>
 				<tr>
 					<td>電話番号(ハイフンなし10or11桁)</td>

@@ -33,7 +33,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       # 名前を保存するカラム
-      t.string :name
+      t.string :end_user_name, null: false
       t.string :telephone_number
       t.boolean :is_active, null: false, default: true
 

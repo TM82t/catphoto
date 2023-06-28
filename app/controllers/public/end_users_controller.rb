@@ -28,7 +28,7 @@ class Public::EndUsersController < ApplicationController
 
   def withdraw
     @end_user = current_end_user
-    @end_user.update(is_deleted: true)
+    @end_user.update(is_active: true)
     reset_session
     redirect_to root_path
   end
@@ -36,7 +36,7 @@ class Public::EndUsersController < ApplicationController
   private
 
   def end_user_params
-      params.require(:end_user).permit(:name, :email)
+      params.require(:end_user).permit(:end_user_name, :email)
   end
 
 end
