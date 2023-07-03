@@ -6,7 +6,7 @@ class Public::PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.end_user_user_id = current_end__user.id
+    @post.end_user_id = current_end_user.id
     if @post.save
       redirect_to posts_path
     else
@@ -32,7 +32,7 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:name, :image, :caption)
+    params.require(:post).permit(:name, :image, :introduction)
   end
 
 
