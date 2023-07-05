@@ -16,14 +16,14 @@
 		</li>
 		<h2 class="section-ttl">新着写真</h2>
 		<div class="posts">
-			<%# @posts.each do |post| %>
-				<%#= link_to post_path(post) do %>
-					<%#= image_tag post.get_image %>
+			<% @posts.each do |post| %>
+				<%= link_to post_path(post) do %>
+					<%= image_tag post.get_image %>
 					<h5><%#= post.genre.name %></h5>
-					<p><%#= post.name %></p>
-					<p><%#= post.infmation %></p>
-				<%# end %>
-			<%# end %>
+					<p><%= post.name %></p>
+					<p><%= post.introduction %></p>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </section>
