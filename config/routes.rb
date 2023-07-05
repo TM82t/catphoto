@@ -33,6 +33,12 @@ Rails.application.routes.draw do
      resource :favorites, only: [:create, :destroy]
     end
 
+    resources :end_users do
+      member do
+        get :favorites
+      end
+    end
+
     #フォロー機能
     resources :end_users do
       resource :follows, only: [:create, :destroy]

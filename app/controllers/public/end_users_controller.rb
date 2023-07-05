@@ -1,5 +1,6 @@
 class Public::EndUsersController < ApplicationController
   #before_action :authenticate_end_user!
+  before_action :set_end_user, only: [:favorites]
 
   def show
     @end_user = current_end_user
@@ -22,6 +23,11 @@ class Public::EndUsersController < ApplicationController
     end
   end
 
+  def favorites
+    favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
+    @favorite_posts = Post.find(likes)
+  end
+
   def confirm
     @end_user = current_end_user
   end
@@ -37,6 +43,10 @@ class Public::EndUsersController < ApplicationController
 
   def end_user_params
       params.require(:end_user).permit(:end_user_name, :email)
+  end
+
+  def set_end_user
+    @end_user = EndUser.find(params[:id])
   end
 
 end
