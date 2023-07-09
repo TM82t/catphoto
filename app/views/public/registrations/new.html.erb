@@ -8,7 +8,7 @@
           <%= render "public/shared/error_messages", resource: resource %>
 
  　          <div class="field">
- 　            <%= f.label :end_user_name, "(ユーザーネーム)", class: "end_user_name" %><br />
+ 　            <%= f.label :end_user_name, "ユーザーネーム" %><br />
  　            <%= f.text_field :end_user_name, autofocus: true, :placeholder =>"tarou" %>
             </div>
 
@@ -36,7 +36,7 @@
             </div>
         <% end %>
 
-        <%= render "public/shared/links" %>
+    <p><%= link_to "アカウントをお持ちの方はこちらから", new_end_user_session_path %></p>
 
   </div>
 </div>

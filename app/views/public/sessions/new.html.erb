@@ -22,11 +22,11 @@
         <% end %>
 
         <div class="actions">
-          <%= f.submit "ログイン" %>
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
         </div>
       <% end %>
 
-      <%= render "public/shared/links" %>
+    <p><%= link_to "会員登録がまだの方はこちらから", new_end_user_registration_path %></p>
     </div>
   </div>
 </div>
