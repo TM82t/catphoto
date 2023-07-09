@@ -36,14 +36,16 @@ Rails.application.routes.draw do
     resources :end_users do
       member do
         get :favorites
+        get :followings
+        get :followers
       end
     end
 
     #フォロー機能
     resources :end_users do
       resource :follows, only: [:create, :destroy]
-      get 'followings' => 'follows#followings', as: 'followings'
-      get 'followers' => 'follows#followers', as: 'followers'
+      # get 'followings' => 'follows#followings', as: 'followings'
+      # get 'followers' => 'follows#followers', as: 'followers'
     end
 
     #通知

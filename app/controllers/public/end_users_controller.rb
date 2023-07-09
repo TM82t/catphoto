@@ -27,7 +27,13 @@ class Public::EndUsersController < ApplicationController
     favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
     @favorite_posts = Post.find(likes)
   end
+  
+  def followings
+  end
 
+  def followers
+  end
+  
   def unsubscribe
     @end_user = current_end_user
   end

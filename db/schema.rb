@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 2023_06_19_125109) do
     t.integer "followed_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true
   end
 
   create_table "post_comment_notifications", force: :cascade do |t|

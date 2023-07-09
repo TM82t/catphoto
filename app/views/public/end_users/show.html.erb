@@ -10,6 +10,11 @@
 		<%= link_to "パスワードを変更する", edit_end_user_registration_path, class: "btn btn-success ml2" %>
 	</h3>
 	<table class="end_user_info">
+		<% if current_end_user.following?(@end_user) %>
+		  <%= link_to "フォロー外す", end_user_follows_path(@end_user.id), method: :delete %>
+    <% else %>
+      <%= link_to "フォローする", end_user_follows_path(@end_user.id), method: :post %>
+    <% end %>
 		<thead>
 			<th></th>
 			<th></th>

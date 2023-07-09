@@ -1,12 +1,14 @@
 class Public::FollowsController < ApplicationController
     # フォローするとき
   def create
-    current_end_user.follow(params[:user_id])
+    @end_user = EndUser.find(params[:end_user_id])
+    current_end_user.follow(@end_user)
     redirect_to request.referer
   end
   # フォロー外すとき
   def destroy
-    current_end_user.unfollow(params[:user_id])
+    @end_user = EndUser.find(params[:end_user_id])
+    current_end_user.unfollow(@end_user)
     redirect_to request.referer
   end
   # フォロー一覧

@@ -12,15 +12,15 @@ class EndUser < ApplicationRecord
   #フォロー機能
   has_many :follows, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_of_follows, class_name: "Follow", foreign_key: "followed_id", dependent: :destroy
-  has_many :followings, through: :follows, source: :follow
+  has_many :followings, through: :follows, source: :followed
   has_many :followers, through: :reverse_of_follows, source: :follower
   # フォローしたときの処理
-  def follow(end_user_id)
-    follows.create(followed_id: end_user_id)
+  def follow(end_user)
+    follows.find_or_create_by(followed_id: end_user.id)
   end
   # フォローを外すときの処理
-  def unfollow(end_user_id)
-    follows.find_by(followed_id: end_user_id).destroy
+  def unfollow(end_user)
+    follows.find_by(followed_id: end_user.id)&.destroy
   end
   # フォローしているか判定
   def following?(end_user)
