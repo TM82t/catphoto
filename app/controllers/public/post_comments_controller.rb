@@ -7,7 +7,7 @@ class Public::PostCommentsController < ApplicationController
     @comment.end_user_id = current_end_user.id
     @comment.post_id = @post.id
     @comment.save
-    redirect_to post_path(post)
+    redirect_to post_path(@post)
   end
 
   def destroy
