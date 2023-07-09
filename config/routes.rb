@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     patch 'end_users/information' => 'end_users#update', as: 'update_information'
     get 'end_users/unsubscribe' => 'end_users#unsubscribe', as: 'confirm_unsubscribe'
     put 'end_users/information' => 'end_users#update'
-    patch 'end_users/withdraw' => 'end_users#withdraw', as: 'withdraw_customer'
+    patch 'end_users/withdraw' => 'end_users#withdraw', as: 'withdraw_end_user'
 
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
      resources :post_comments, only: [:create, :destroy]

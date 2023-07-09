@@ -1,6 +1,6 @@
 <section class="inner">
 	<h2 class="section-ttl">会員情報編集</h2>
-	<%= form_with model:@end_user, url: update_information_path do |f| %>
+	<%= form_with model: @end_user, url: update_information_path do |f| %>
 		<%#= render 'layouts/error_messages', resource: @end_user %>
 		<table class="customer_info customer_form">
 			<thead>
@@ -10,19 +10,15 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td><%= f.label :name, "ユーザー名" %></td>
-					<td><%= f.text_field :name, :placeholder =>"#{@end_user.end_user_name}" %></td>
+					<td><%= f.label :name, "ユーザーネーム" %></td>
+					<td><%= f.text_field :name, autocomplete: "end_user_name", :placeholder =>"#{@end_user.end_user_name}" %></td>
 				</tr>
 				<tr>
 					<td><%= f.label :email, "メールアドレス" %></td>
-					<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@end_user.email}" %></td>
+					<td><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@end_user.email}" %></td>
 				</tr>
 				<tr>
-					<td><%= f.label :telephone_number, "電話番号(ハイフンなし10or11桁)" %></td>
-					<td colspan="2"><%= f.text_field :telephone_number, :placeholder =>"#{@end_user.telephone_number}" %></td>
-				</tr>
-				<tr>
-					<td colspan="2"><%= f.submit "編集内容を保存する", class: "btn btn-success" %></td>
+					<td><%= f.submit "編集内容を保存する", class: "btn btn-success" %></td>
 					<td><%= link_to "退会する", confirm_unsubscribe_path, class: "btn btn-danger" %></td>
 				</tr>
 			</tbody>

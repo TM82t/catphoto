@@ -18,11 +18,6 @@
             </div>
 
             <div class="field">
-              <%= f.label :telephone_number, "電話番号(ハイフンなし10or11桁)" %><br />
-              <%= f.text_field :telephone_number, :placeholder =>"00011112222" %>
-            </div>
-
-            <div class="field">
               <%= f.label :password, "パスワード(#{@minimum_password_length}文字以上)" %><br />
               <%= f.password_field :password, autocomplete: "new-password" %>
             </div>

@@ -28,13 +28,13 @@ class Public::EndUsersController < ApplicationController
     @favorite_posts = Post.find(likes)
   end
 
-  def confirm
+  def unsubscribe
     @end_user = current_end_user
   end
 
   def withdraw
     @end_user = current_end_user
-    @end_user.update(is_active: true)
+    @end_user.update(is_active: false)
     reset_session
     redirect_to root_path
   end
