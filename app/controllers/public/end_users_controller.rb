@@ -1,39 +1,45 @@
 class Public::EndUsersController < ApplicationController
   #before_action :authenticate_end_user!
-  before_action :set_end_user, only: [:favorites]
+  before_action :set_end_user, only: [:favorites, :followings, :followers]
 
   def show
-    @end_user = current_end_user
+    @end_user = EndUser.find_by(id: params[:id])
   end
 
   def edit
     @end_user = current_end_user
-    #if @end_user.id != current_end_user.id
-      #redirect_to end_user_path(current_end_user)
-    #end
+    if @end_user.id != current_end_user.id
+      redirect_to end_user_path(current_end_user)
+    end
   end
 
   def update
     @end_user = current_end_user
     if @end_user.update(end_user_params)
       flash[:success] = "会員情報が変更されました。"
-      redirect_to mypage_path
+      redirect_to end_user_path(current_end_user.id)
     else
       render "edit"
     end
   end
 
   def favorites
-    favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
+    @favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
     @favorite_posts = Post.find(likes)
   end
-  
+
+  # フォロー一覧
   def followings
+    end_user = EndUser.find(params[:id])
+    @end_users = end_user.followings
   end
 
+  # フォロワー一覧
   def followers
+    end_user = EndUser.find(params[:id])
+    @end_users = end_user.followers
   end
-  
+
   def unsubscribe
     @end_user = current_end_user
   end
@@ -48,7 +54,7 @@ class Public::EndUsersController < ApplicationController
   private
 
   def end_user_params
-      params.require(:end_user).permit(:end_user_name, :email)
+      params.require(:end_user).permit(:end_user_name, :email, :profile_image)
   end
 
   def set_end_user

@@ -11,14 +11,5 @@ class Public::FollowsController < ApplicationController
     current_end_user.unfollow(@end_user)
     redirect_to request.referer
   end
-  # フォロー一覧
-  def followings
-    end_user = EndUser.find(params[:user_id])
-    @end_users = end_user.followings
-  end
-  # フォロワー一覧
-  def followers
-    end_user = EndUser.find(params[:user_id])
-    @end_users = end_user.followers
-  end
+
 end

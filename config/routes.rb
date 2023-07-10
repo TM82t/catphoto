@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    get 'end_users/mypage' => 'end_users#show', as: 'mypage'
+    #get 'end_users/mypage' => 'end_users#show', as: 'mypage'
     # end_users/editのようにするとdeviseのルーティングとかぶってしまうためinformationを付け加えている。
     get 'end_users/information/edit' => 'end_users#edit', as: 'edit_information'
     patch 'end_users/information' => 'end_users#update', as: 'update_information'
