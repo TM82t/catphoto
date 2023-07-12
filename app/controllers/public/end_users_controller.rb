@@ -24,9 +24,7 @@ class Public::EndUsersController < ApplicationController
   end
 
   def favorites
-    favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
-    @post = Post.find(params[:post_id])
-    @favorite_posts = Post.find(favorites)
+    @favorite_posts = @end_user.favorite_posts
   end
 
   # フォロー一覧
