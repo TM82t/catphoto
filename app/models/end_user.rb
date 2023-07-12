@@ -9,6 +9,8 @@ class EndUser < ApplicationRecord
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  has_one_attached :profile_photo
+
   #フォロー機能
   has_many :follows, class_name: "Follow", foreign_key: "follower_id", dependent: :destroy
   has_many :reverse_of_follows, class_name: "Follow", foreign_key: "followed_id", dependent: :destroy
@@ -25,6 +27,14 @@ class EndUser < ApplicationRecord
   # フォローしているか判定
   def following?(end_user)
     followings.include?(end_user)
+  end
+
+  def get_profile_photo(width, height)
+    unless profile_photo.attached?
+      file_path = Rails.root.join('app/assets/images/no_image.jpg')
+      profile_photo.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+    end
+    profile_photo.variant(resize_to_limit: [width, height]).processed
   end
 
   # ゲストログイン用

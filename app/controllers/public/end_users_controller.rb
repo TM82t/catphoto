@@ -24,8 +24,9 @@ class Public::EndUsersController < ApplicationController
   end
 
   def favorites
-    @favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
-    @favorite_posts = Post.find(likes)
+    favorites = Favorite.where(end_user_id: @end_user.id).pluck(:post_id)
+    @post = Post.find(params[:post_id])
+    @favorite_posts = Post.find(favorites)
   end
 
   # フォロー一覧
@@ -60,5 +61,10 @@ class Public::EndUsersController < ApplicationController
   def set_end_user
     @end_user = EndUser.find(params[:id])
   end
+
+  def post_params
+    params.require(:post).permit(:name, :image, :introduction)
+  end
+
 
 end

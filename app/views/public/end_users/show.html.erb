@@ -20,6 +20,9 @@
 		  <tr>
 		    <%= link_to "フォロワー #{@end_user.followers.count} 人", followers_end_user_path(@end_user) %>
 		  </tr>
+		  <tr>
+		  	<%= link_to "いいねした投稿", favorites_end_user_path(@end_user) %>
+		  </tr>
 		<thead>
 			<th></th>
 			<th></th>

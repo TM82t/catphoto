@@ -24,6 +24,7 @@ class Post < ApplicationRecord
     image
   end
 
+
   def favorited_by?(end_user)
     favorites.exists?(end_user_id: end_user_id)
   end
