@@ -1,9 +1,10 @@
 <section class="wrapper flex">
 	<div class="sidebar">
-		<h3>ジャンル</h3>
-		<%# @genres.each do |genre| %>
-			<%#= link_to genre.name, items_path(genre_id: genre.id) %>
-		<%# end %>
+		<h3>キーワード</h3>
+		 <%= form_with url: search_posts_path, local: true, method: :get do |form| %>
+      <%= form.text_field :keyword %>
+      <%= form.submit "検索" %>
+     <% end %>
 	</div>
 	<div class="content">
 		<div class="mv">
