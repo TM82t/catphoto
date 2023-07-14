@@ -1,0 +1,19 @@
+<h1>ユーザー検索</h1>
+<%= form_with url: search_end_users_path, method: :get, local: true do |f| %>
+  <%= f.text_field :end_user_name %>
+  <%= f.submit :search %>
+<% end %>
+<table>
+  <thead>
+    <tr>
+      <th>ユーザー</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @end_users.each do |user| %>
+      <tr>
+        <td><%= user.end_user_name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

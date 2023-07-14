@@ -42,6 +42,9 @@ Rails.application.routes.draw do
         get :followings
         get :followers
       end
+      collection do
+        get 'search'
+      end
     end
 
     #フォロー機能
@@ -55,8 +58,7 @@ Rails.application.routes.draw do
     resources :post_comment_notifications, only: :index
     resources :favorite_notifications, only: :index
     resources :follow_notigicatinos, only: :index
-    #ユーザー･投稿検索
-    get 'search' => 'users#search'
+
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
