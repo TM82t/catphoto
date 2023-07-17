@@ -1,2 +1,3 @@
 class FavoriteNotification < ApplicationRecord
+  
 end
