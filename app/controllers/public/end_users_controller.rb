@@ -50,14 +50,6 @@ class Public::EndUsersController < ApplicationController
     redirect_to root_path
   end
 
-  def search
-    if params[:end_user_name].present?
-      @end_users = EndUser.where('name LIKE ?', "%#{params[:end_user_name]}%")
-    else
-      @end_users = EndUser.none
-    end
-  end
-
   private
 
   def end_user_params

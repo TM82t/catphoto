@@ -31,9 +31,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
      resources :post_comments, only: [:create, :destroy]
      resource :favorites, only: [:create, :destroy]
-     collection do
-      get 'search'
-     end
     end
 
     resources :end_users do
@@ -41,9 +38,6 @@ Rails.application.routes.draw do
         get :favorites
         get :followings
         get :followers
-      end
-      collection do
-        get 'search'
       end
     end
 
@@ -59,6 +53,8 @@ Rails.application.routes.draw do
     resources :favorite_notifications, only: :index
     resources :follow_notigicatinos, only: :index
 
+    #検索機能
+    get '/search', to: 'searchs#search'
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
