@@ -3,7 +3,7 @@ class SearchsController < ApplicationController
     @model = params["model"]
     @content = params["content"]
     @method = params["method"]
-    @records = search_for(@model, @content, @method)
+    @records = search_for(@model, @content, @method).page(params[:page]).per(5)
   end
 
   private
@@ -12,7 +12,7 @@ class SearchsController < ApplicationController
       if method == 'perfect'
         EndUser.where(name: content)
       else
-        EndUser.where('name LIKE ?', '%'+content+'%')
+        EndUser.where('end_user_name LIKE ?', '%'+content+'%')
       end
     elsif model == 'post'
       if method == 'perfect'
@@ -22,5 +22,5 @@ class SearchsController < ApplicationController
       end
     end
   end
-  
+
 end

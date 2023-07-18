@@ -53,9 +53,12 @@ Rails.application.routes.draw do
     resources :favorite_notifications, only: :index
     resources :follow_notigicatinos, only: :index
 
-    #検索機能
-    get '/search', to: 'searchs#search'
+
 
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  
+  #検索機能
+  get '/search', to: 'searchs#search'
+
 end
