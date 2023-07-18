@@ -1,5 +1,5 @@
 <section class="inner">
-	<h2 class="section-ttl"><%= @end_user.name %> さんの会員情報編集</h2>
+	<h2 class="section-ttl"><%= @end_user.end_user_name %> さんの会員情報編集</h2>
 	<%= form_with model:@end_user, url: admin_end_user_path(@end_user) do |f| %>
 		<%#= render 'layouts/error_messages', resource: @end_user %>
 		<table class="customer_info customer_form">
@@ -16,10 +16,6 @@
 				<tr>
 					<td>メールアドレス</td>
 					<td colspan="2"><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@end_user.email}" %></td>
-				</tr>
-				<tr>
-					<td>電話番号(ハイフンなし10or11桁)</td>
-					<td colspan="2"><%= f.text_field :telephone_number, :placeholder =>"#{@end_user.telephone_number}" %></td>
 				</tr>
 				<tr>
 					<td>会員ステータス</td>

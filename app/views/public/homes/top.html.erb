@@ -1,17 +1,17 @@
 <section class="wrapper flex">
 	<div class="sidebar">
-		<h3>キーワード</h3>
+		<h3>検索</h3>
      <%= render 'searchs/form' %>
 	</div>
 	<div class="content">
 		<div class="mv">
 			<p>
-				ようこそ、 CATPHOTOへ！
+				CATPHOTOへようこそ！
 			</p>
 		</div>
-		<li>
+		<div>
 		 <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark' %>
-		</li>
+		</div>
 		<h2 class="section-ttl">新着写真</h2>
 		<div class="posts">
 			<% @posts.each do |post| %>
