@@ -1,5 +1,5 @@
 class Public::PostCommentsController < ApplicationController
-  before_action :ensure_correct_end_user, only: [:destroy]
+  before_action :ensure_currect_end_user, only: [:destroy]
 
   def create
     @post = Post.find(params[:post_id])
@@ -21,8 +21,8 @@ class Public::PostCommentsController < ApplicationController
     params.require(:post_comment).permit(:comment, :post_id, :end_user_id)
   end
 
-  def ensure_correct_end_user
-    @comment = Comment.find(params[:id])
+  def ensure_currect_end_user
+    @comment = PostComment.find(params[:id])
     unless @comment.end_user == current_end_user
       redirect_to posts_path, notice: "投稿者以外コメントは削除できません。"
     end
