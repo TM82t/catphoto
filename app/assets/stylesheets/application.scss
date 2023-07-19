@@ -214,12 +214,6 @@ table.admin_customer_index {
     text-align: left;
   }
 }
-.admin_item_image {
-  width: 220px;
-  height: 150px;
-
-  object-fit: cover;
-}
 .item_image {
   display: block;
   width: 360px;
@@ -249,48 +243,6 @@ table.admin_customer_index {
 input[readonly] {
   cursor: text !important;
   background-color: white !important;
-}
-table.admin_item_info {
-  width: 400px;
-  margin-left: 20px;
-  thead {
-    tr {
-      th:first-child {
-        width: 35%;
-      }
-      th:last-child {
-        width: 65%;
-      }
-    }
-  }
-}
-table.admin_item_info.item_form {
-  tbody {
-    tr {
-      td {
-        vertical-align: top;
-      }
-      input,
-      textarea,
-      select {
-        width: 220px;
-      }
-      input[name="item[is_active]"] {
-        width: auto;
-      }
-    }
-  }
-}
-.item_info {
-  width: 420px;
-  padding-left: 40px;
-  h4 {
-    font-size: 20px;
-    margin-bottom: 20px;
-  }
-  p {
-    margin-bottom: 15px;
-  }
 }
 .sidebar {
   width: 250px;
@@ -332,37 +284,6 @@ table.admin_item_info.item_form {
     font-size: 16px;
     text-align: center;
     background-color: rgba(255,255,255,0.8);
-  }
-}
-.items {
-  display: flex;
-  flex-wrap: wrap;
-  width: 780px;
-  a {
-    display: block;
-    width: 180px;
-    margin: 0 20px 20px 0;
-    padding: 10px;
-    position: relative;
-    background-color: #fee;
-    img {
-      width: 160px;
-      height: 120px;
-
-      object-fit: cover;
-    }
-    h5 {
-      position: absolute;
-      top: 0;
-      left: 0;
-      background-color: #fda;
-    }
-  }
-  a:hover {
-    background-color: #fcc;
-  }
-  a:nth-child(4n) {
-    margin: 0 0 20px;
   }
 }
 .admin_top-txt {

@@ -9,6 +9,8 @@
 				<th></th>
 			</thead>
 			<tbody>
+				  <label for="inputImage">プロフィール写真</label>
+          <%= f.file_field :profile_photo, placeholder: "プロフィール写真", accept: "image/*" %>
 				<tr>
 					<td><%= f.label :name, "ユーザーネーム" %></td>
 					<td><%= f.text_field :name, autocomplete: "end_user_name", :placeholder =>"#{@end_user.end_user_name}" %></td>
