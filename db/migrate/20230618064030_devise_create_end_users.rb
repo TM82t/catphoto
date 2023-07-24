@@ -35,6 +35,7 @@ class DeviseCreateEndUsers < ActiveRecord::Migration[6.1]
       # 名前を保存するカラム
       t.string :end_user_name, null: false
       t.string :profile_photo
+      t.text :introduction
       t.boolean :is_active, null: false, default: true
 
 

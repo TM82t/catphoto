@@ -1,7 +1,6 @@
 <section class="inner">
 	<h2 class="section-ttl">会員情報編集</h2>
 	<%= form_with model: @end_user, url: update_information_path do |f| %>
-		<%#= render 'layouts/error_messages', resource: @end_user %>
 		<table class="customer_info customer_form">
 			<thead>
 				<th></th>
@@ -12,12 +11,16 @@
 				  <label for="inputImage">プロフィール写真</label>
           <%= f.file_field :profile_photo, placeholder: "プロフィール写真", accept: "image/*" %>
 				<tr>
-					<td><%= f.label :name, "ユーザーネーム" %></td>
+					<td><%= f.label :name, "ユーザー名" %></td>
 					<td><%= f.text_field :name, autocomplete: "end_user_name", :placeholder =>"#{@end_user.end_user_name}" %></td>
 				</tr>
 				<tr>
 					<td><%= f.label :email, "メールアドレス" %></td>
 					<td><%= f.email_field :email, autocomplete: "email", :placeholder =>"#{@end_user.email}" %></td>
+				</tr>
+				<tr>
+					<td><%= f.label :introduction, "プロフィール紹介" %></td>
+					<td><%= f.text_field :introduction, autocomplete: "introduction", :placeholder =>"#{@end_user.introduction}" %></td>
 				</tr>
 				<tr>
 					<td><%= f.submit "編集内容を保存する", class: "btn btn-success" %></td>

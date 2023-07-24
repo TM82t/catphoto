@@ -4,13 +4,14 @@
      <%= render 'searchs/form' %>
 	</div>
 	<div class="content">
+		<div>
+		 <%= link_to '新規投稿', new_post_path, class: 'nav-link text-dark' %>
+		</div>
 		<div class="mv">
 			<p>
-				CATPHOTOへようこそ！
+				CATPHOTOへようこそ！</br>
+				あなたのお気に入りを見つけよう！
 			</p>
-		</div>
-		<div>
-		 <%= link_to '投稿フォーム', new_post_path, class: 'nav-link text-dark' %>
 		</div>
 		<h2 class="section-ttl">新着写真</h2>
 		<div class="posts">
