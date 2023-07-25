@@ -1,3 +1,0 @@
-class FollowNotification < ApplicationRecord
-  
-end

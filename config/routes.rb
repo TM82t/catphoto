@@ -54,9 +54,5 @@ Rails.application.routes.draw do
   #検索機能
   get '/search', to: 'searchs#search'
 
-  #通知
-  resources :post_comment_notifications, only: :index
-  resources :favorite_notifications, only: :index
-  resources :follow_notiicatinos, only: :index
 
 end

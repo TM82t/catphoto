@@ -1,3 +1,0 @@
-class FavoriteNotification < ApplicationRecord
-  
-end

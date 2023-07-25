@@ -1,2 +1,0 @@
-class PostCommentNotification < ApplicationRecord
-end
