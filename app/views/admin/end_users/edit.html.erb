@@ -1,7 +1,6 @@
 <section class="inner">
 	<h2 class="section-ttl"><%= @end_user.end_user_name %> さんの会員情報編集</h2>
 	<%= form_with model:@end_user, url: admin_end_user_path(@end_user) do |f| %>
-		<%#= render 'layouts/error_messages', resource: @end_user %>
 		<table class="customer_info customer_form">
 			<thead>
 				<th></th>
