@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :end_user
   has_many :post_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :favorited_end_users, through: :favorites, source: :end_user
 
   validates :name, presence: true
   validates :image, presence: true
