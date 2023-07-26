@@ -24,7 +24,7 @@ class Public::EndUsersController < ApplicationController
   end
 
   def favorites
-    @favorite_posts = @end_user.favorite_posts
+    @favorite_posts = @end_user.favorited_posts
   end
 
   # フォロー一覧
