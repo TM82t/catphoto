@@ -5,12 +5,13 @@
 	</div>
 	<div class="content">
 		<div>
-		 <%= link_to '新規投稿', new_post_path, class: 'nav-link text-dark' %>
+		 <%= link_to '● 新規投稿', new_post_path, class: 'nav-link text-dark' %>
 		</div>
 		<div class="mv">
 			<p>
 				CATPHOTOへようこそ！</br>
-				あなたのお気に入りを見つけよう！
+				あなたのお気に入りの投稿を</br>
+				見つけましょう！
 			</p>
 		</div>
 		<h2 class="section-ttl">新着写真</h2>
@@ -18,7 +19,6 @@
 			<% @posts.each do |post| %>
 				<%= link_to post_path(post) do %>
 					<%= image_tag post.get_image %>
-					<h5><%#= post.genre.name %></h5>
 					<p><%= post.name %></p>
 					<p><%= post.introduction %></p>
 				<% end %>

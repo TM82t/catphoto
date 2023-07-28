@@ -10,27 +10,36 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header class="<%= (admin_signed_in? ? "admin_header" : "" ) %>">
-      <div class="header-content">
-      <%= link_to 'CatPhoto', (admin_signed_in? ? admin_top_path : root_path ), class: "logo" %>
-        <ul class="flex">
-          <% if admin_signed_in? %>
-            <li><%= link_to '会員一覧', admin_end_users_path %></li>
-            <li><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
-          <% elsif end_user_signed_in? %>
-            <li><%= link_to 'マイページ', end_user_path(current_end_user.id) %></li>
-            <li><%= link_to '投稿一覧', posts_path %></li>
-            <li><%= link_to 'ログアウト', destroy_end_user_session_path, method: :delete %></li>
-          <% else %>
-            <li><%= link_to '投稿一覧', posts_path %></li>
-            <li><%= link_to '新規登録', new_end_user_registration_path %></li>
-            <li><%= link_to 'ログイン', new_end_user_session_path %></li>
-            <li><%= link_to 'ゲストログイン', end_users_guest_sign_in_path, method: :post %></li>
-          <% end %>
-        </ul>
+  <body class="d-flex flex-column vh-100">
+    <header class="<%= (admin_signed_in? ? "admin_header" : "" ) %>, shadow-sm">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <div class="header-content">
+          <%= link_to 'CatPhoto', (admin_signed_in? ? admin_top_path : root_path ), class: "logo" %>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+           <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav ml-auto">
+              <% if admin_signed_in? %>
+                <li class="nav-item"><%= link_to '会員一覧', admin_end_users_path %></li>
+                <li class="nav-item"><%= link_to 'ログアウト', destroy_admin_session_path, method: :delete %></li>
+              <% elsif end_user_signed_in? %>
+                <li class="nav-item"><%= link_to 'マイページ', end_user_path(current_end_user.id) %></li>
+                <li class="nav-item"><%= link_to '投稿一覧', posts_path %></li>
+                <li class="nav-item"><%= link_to 'ログアウト', destroy_end_user_session_path, method: :delete %></li>
+              <% else %>
+                <li class="nav-item"><%= link_to '投稿一覧', posts_path %></li>
+                <li class="nav-item"><%= link_to '新規登録', new_end_user_registration_path %></li>
+                <li class="nav-item"><%= link_to 'ログイン', new_end_user_session_path %></li>
+                <li class="nav-item"><%= link_to 'ゲストログイン', end_users_guest_sign_in_path, method: :post %></li>
+              <% end %>
+            </ul>
+           </div>
 
-      </div>
+          </div>
+        </div>
     </header>
 
     <main>
