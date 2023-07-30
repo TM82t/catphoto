@@ -100,27 +100,6 @@ header {
     }
   }
 }
-.admin_header {
-  .header-content {
-    ul {
-      li:hover {
-        cursor: pointer;
-        background-color: #ccf;
-      }
-    }
-    form {
-      width: 510px;
-      position: absolute;
-      top: 43px;
-      right: 0;
-      display: flex;
-      justify-content: space-between;
-      input[name="search[content]"] {
-        width: 280px;
-      }
-    }
-  }
-}
 main {
   padding: 100px 0;
 }
@@ -162,7 +141,8 @@ table.has_border {
   }
 }
 table.end_user_info {
-  width: 70%;
+  width: 50%;
+  padding: 10px 30px;
   thead {
     th:first-child {
       width: 30%;
@@ -262,12 +242,5 @@ label.end_user_name {
   }
   a:nth-child(4n) {
     margin: 0 0 20px;
-  }
-}
-.admin_top-txt {
-  padding-top: 30px;
-  font-size: 30px;
-  a {
-    font-weight: bold;
   }
 }

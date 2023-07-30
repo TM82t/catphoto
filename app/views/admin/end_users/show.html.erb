@@ -4,19 +4,19 @@
     <body>
       <tr>
         <th>ユーザーID</th>
-        <td><%= @end_user.id %></td>
+        <td colspan="2"><%= @end_user.id %></td>
       </tr>
       <tr>
         <th>ユーザー名</th>
-        <td><%= @end_user.end_user_name %></td>
+        <td colspan="2"><%= @end_user.end_user_name %></td>
       </tr>
       <tr>
         <th>メールアドレス</th>
-        <td><%= @end_user.email %></td>
+        <td colspan="2"><%= @end_user.email %></td>
       </tr>
       <tr>
         <th>会員ステータス</th>
-        <td><%= @end_user.is_active ? "有効" : "退会" %></td>
+        <td colspan="2"><%= @end_user.is_active ? "有効" : "退会" %></td>
       </tr>
       <tr>
         <td><%= link_to "編集する", edit_admin_end_user_path(@end_user.id), class: "btn btn-success mb-4" %></td>
