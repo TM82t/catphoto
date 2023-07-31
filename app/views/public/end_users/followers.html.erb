@@ -1,4 +1,6 @@
 <p>フォロワー一覧</p><br/>
   <% @end_users.each do |user| %>
-  <%= user.name %>
-<% end %>
+    <%= link_to end_user_path(@end_user.id) do %>
+      <%= user.end_user_name %>
+    <% end %>
+  <% end %>
