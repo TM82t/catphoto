@@ -8,7 +8,7 @@ class Public::PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.end_user_id = current_end_user.id
     if @post.save
-      redirect_to posts_path
+      redirect_to post_path(@post)
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Public::PostsController < ApplicationController
     post.destroy
     redirect_to '/posts'
   end
-  
+
   def search
     if params[:keyword].present?
       @posts = Post.where('caption LIKE ?', "%#{params[:keyword]}%")
