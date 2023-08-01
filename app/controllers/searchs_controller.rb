@@ -10,7 +10,7 @@ class SearchsController < ApplicationController
   def search_for(model, content, method)
     if model == 'end_user'
       if method == 'perfect'
-        EndUser.where(name: content)
+        EndUser.where(end_user_name: content)
       else
         EndUser.where('end_user_name LIKE ?', '%'+content+'%')
       end

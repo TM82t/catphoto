@@ -38,21 +38,6 @@ class EndUser < ApplicationRecord
     profile_photo.variant(resize_to_limit: [width, height]).processed
   end
 
-  # 検索方法分岐
-  def self.looks(search, word)
-    if search == "perfect_match"
-      @end_user = EndUser.where("name LIKE?", "#{word}")
-    elsif search == "forward_match"
-      @end_user = EndUser.where("name LIKE?","#{word}%")
-    elsif search == "backward_match"
-      @end_user = EndUser.where("name LIKE?","%#{word}")
-    elsif search == "partial_match"
-      @end_user = EndUser.where("name LIKE?","%#{word}%")
-    else
-      @end_user = EndUser.all
-    end
-  end
-
   # ゲストログイン用
   def self.guest
     find_or_create_by!(end_user_name: 'ゲスト',email: 'guest@example.com') do |user|
