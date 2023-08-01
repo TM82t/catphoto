@@ -39,10 +39,10 @@ class Public::EndUsersController < ApplicationController
     @end_users = @end_user.followers
   end
 
-  def followings
-    @end_user = EndUser.find(params[:end_user_id])
-    @end_users = @end_user.followings
-  end
+  #def followings
+   # @end_user = EndUser.find(params[:end_user_id])
+    #@end_users = @end_user.followings
+  #end
 
   def unsubscribe
     @end_user = current_end_user

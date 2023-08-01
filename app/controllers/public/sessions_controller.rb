@@ -6,8 +6,8 @@ class Public::SessionsController < Devise::SessionsController
 
   # ゲストログイン用
   def guest_sign_in
-    user = EndUser.guest
-    sign_in user
+    end_user = EndUser.guest
+    sign_in end_user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
   # GET /resource/sign_in
