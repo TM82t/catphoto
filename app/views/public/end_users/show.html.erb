@@ -1,44 +1,4 @@
 <section class="inner">
-	<h2 class="title">マイページ</h2>
-		<%= link_to "編集する", edit_information_path(@end_user), class: "btn btn-primary ml2" %>
-
-		<table class="end_user_info">
-			<thead>
-				<th></th>
-				<th></th>
-			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-					<td><%= image_tag @end_user.get_profile_photo(100,100) %></td>
-				</tr>
-				<tr>
-					<% if @end_user != current_end_user %>
-						<% if current_end_user.following?(@end_user) %>
-						  <%= link_to "フォロー外す", end_user_follows_path(@end_user.id), method: :delete %>
-				    <% else %>
-				      <%= link_to "フォローする", end_user_follows_path(@end_user.id), method: :post %>
-				    <% end %>
-				  <% end %>
-			  </tr>
-			  <tr>
-			  	<td><%= link_to "フォロー #{@end_user.followings.count} 人", followings_end_user_path(@end_user) %></td>
-			    <td><%= link_to "フォロワー #{@end_user.followers.count} 人", followers_end_user_path(@end_user) %></td>
-			  	<td><%= link_to "いいねした投稿", favorites_end_user_path(@end_user) %></td>
-			  </tr>
-
-				<tr>
-					<td>ユーザー名</td>
-					<td><%= @end_user.end_user_name %></td>
-				</tr>
-				<tr>
-					<td>メールアドレス</td>
-					<td colspan="2"><%= @end_user.email %></td>
-				</tr>
-				<tr>
-					<td>プロフィール紹介</td>
-					<td colspan="2"><%= @end_user.introduction %></td>
-				</tr>
-			</tbody>
-		</table>
+	<h2 class="section-ttl">ユーザーページ</h2>
+     <%= render 'info', end_user: @end_user %>
 </section>

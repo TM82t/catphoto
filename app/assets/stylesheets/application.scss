@@ -141,7 +141,7 @@ table.has_border {
   }
 }
 table.end_user_info {
-  width: 70%;
+  width: 100%;
   padding: 10px 30px;
   thead {
     th:first-child {
@@ -152,11 +152,20 @@ table.end_user_info {
     }
   }
 }
-table.end_user_info.end_user_form {
+table.end_user_info {
   tbody {
     tr:nth-child(n+3) {
       td:nth-child(2) {
         padding-left: 55px;
+      }
+    }
+  }
+}
+table.end_user_form{
+  tbody {
+    tr:nth-child(n+3) {
+      td:nth-child(2) {
+        padding-left: 10px;
       }
     }
   }

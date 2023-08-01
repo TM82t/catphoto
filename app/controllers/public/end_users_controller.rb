@@ -35,7 +35,7 @@ class Public::EndUsersController < ApplicationController
 
   # フォロワー一覧
   def followers
-    @end_user = EndUser.find(params[:end_user_id])
+    @end_user = EndUser.find(params[:id])
     @end_users = @end_user.followers
   end
 
