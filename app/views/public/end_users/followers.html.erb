@@ -1,6 +1,36 @@
 <h2>フォロワー一覧</h2>
-  <% @end_users.each do |user| %>
-    <%= link_to end_user_path(@end_user.id) do %>
-      <%= user.end_user_name %>
-    <% end %>
-  <% end %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-mb-8">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ユーザー画像</th>
+            <th>ユーザー名</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @end_users.each do |end_user| %>
+            <tr>
+              <td><%= image_tag end_user.get_profile_photo(50,50) %></td>
+              <td><%= end_user.end_user_name %></td>
+              <td>
+                <% if current_end_user != end_user %>
+                  <% if current_end_user.following?(end_user) %>
+                    <%= link_to "フォローを外す", end_user_follows_path(end_user.id), method: :delete, class: "btn btn-info" %>
+                  <% else %>
+                    <%= link_to "フォローする", end_user_follows_path(end_user.id), method: :post, class: "btn btn-success" %>
+                  <% end %>
+                <% end %>
+              </td>
+              <td><%= link_to 'ユーザーページ', end_user_path(end_user.id) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
