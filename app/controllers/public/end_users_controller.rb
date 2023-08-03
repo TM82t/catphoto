@@ -4,6 +4,7 @@ class Public::EndUsersController < ApplicationController
 
   def show
     @end_user = EndUser.find_by(id: params[:id])
+    @posts = @end_user.posts.page(params[:page]).reverse_order
   end
 
   def edit
