@@ -8,7 +8,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     end_user = EndUser.guest
     sign_in end_user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to root_path
   end
   # GET /resource/sign_in
   # def new
@@ -31,7 +31,6 @@ class Public::SessionsController < Devise::SessionsController
     @end_user = EndUser.find_by(email: params[:end_user][:email])
     if @end_user
       if @end_user.valid_password?(params[:end_user][:password]) && !@end_user.is_active
-        flash[:danger] = 'お客様は退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
         redirect_to new_end_user_registration_path
       end
     end

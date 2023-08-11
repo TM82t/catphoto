@@ -1,5 +1,5 @@
 class Public::EndUsersController < ApplicationController
-  #before_action :authenticate_end_user!
+  before_action :authenticate_end_user!
   before_action :set_end_user, only: [:favorites, :followings, :followers]
 
   def show
