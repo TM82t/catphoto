@@ -39,10 +39,14 @@ class EndUser < ApplicationRecord
   end
 
   # ゲストログイン用
+  GUEST_END_USER_EMAIL = "guest@example.com"
   def self.guest
-    find_or_create_by!(end_user_name: 'ゲスト',email: 'guest@example.com') do |user|
+    find_or_create_by!(end_user_name: 'ゲスト',email: GUEST_END_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
     end
+  end
+  def guest_end_user?
+    email == GUEST_END_USER_EMAIL
   end
 
 end
