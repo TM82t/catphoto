@@ -1,7 +1,12 @@
 <div class="inner">
   <h3 class="section-ttl"><%= @end_user.end_user_name %>さんの会員詳細</h3>
   <table class="end_user_info">
-    <body>
+    <thead>
+      <th></th>
+      <th></th>
+      <th></th>
+    </thead>
+    <tbody>
       <tr>
         <th>ユーザーID</th>
         <td colspan="2"><%= @end_user.id %></td>
@@ -21,6 +26,6 @@
       <tr>
         <td><%= link_to "編集する", edit_admin_end_user_path(@end_user.id), class: "btn btn-success mb-4" %></td>
       </tr>
-    </body>
+    </tbody>
   </table>
 </div>

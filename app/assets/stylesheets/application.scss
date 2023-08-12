@@ -152,15 +152,7 @@ table.end_user_info {
     }
   }
 }
-table.end_user_info {
-  tbody {
-    tr:nth-child(n+3) {
-      td:nth-child(2) {
-        padding-left: 55px;
-      }
-    }
-  }
-}
+
 table.end_user_form{
   tbody {
     tr:nth-child(n+3) {
