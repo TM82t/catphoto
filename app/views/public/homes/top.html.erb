@@ -1,29 +1,36 @@
 <section class="wrapper flex">
-	<div class="sidebar">
-		<h3>検索</h3>
-     <%= render 'searchs/form' %>
-	</div>
+  <% if current_end_user.present? %>
+    <div class="sidebar">
+      <h3>検索</h3>
+      <%= render 'searchs/form' %>
+    </div>
+  <% else %>
+  <% end %>
 	<div class="content">
 		<div class="mv">
 			<p>
 				<strong>
 				  CATPHOTOへようこそ！</br>
-				  あなたのお気に入りの投稿を見つけましょう！</br>
+				  新規登録またはログインを行なってあなたの</br>
+				  お気に入りの一枚を見つけましょう！</br>
         </strong>
 				</br>
-				登録をされたくない方はゲストログインを</br>
+				新規登録されない方はゲストログインを</br>
 				クリックしてログインしてください
 			</p>
 		</div>
-		<h2 class="section-ttl">新着写真</h2>
-		<div class="posts">
-			<% @posts.each do |post| %>
-				<%= link_to post_path(post) do %>
-					<%= image_tag post.get_image %>
-					<p><%= post.name %></p>
-					<p><%= post.introduction %></p>
+		<% if current_end_user.present? %>
+			<h2 class="section-ttl">新着写真</h2>
+			<div class="posts">
+				<% @posts.each do |post| %>
+					<%= link_to post_path(post) do %>
+						<%= image_tag post.get_image %>
+						<p><%= post.name %></p>
+						<p><%= post.introduction %></p>
+					<% end %>
 				<% end %>
-			<% end %>
-		</div>
+			</div>
+		<% else %>
+		<% end %>
 	</div>
 </section>
