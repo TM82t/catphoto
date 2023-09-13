@@ -16,6 +16,8 @@ class EndUser < ApplicationRecord
   has_many :followings, through: :follows, source: :followed
   has_many :followers, through: :reverse_of_follows, source: :follower
 
+  validates :end_user_name, presence: true
+  validates :email, presence: true
 
   # フォローしたときの処理
   def follow(end_user)
