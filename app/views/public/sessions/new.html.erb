@@ -3,22 +3,6 @@
    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light py-4 mb-0">ログイン</h5>
 
-      <% if @end_user.errors.any? %>
-        <div id="error_explanation" data-turbo-cache="false">
-          <h2>
-            <%= I18n.t("errors.messages.not_saved",
-                       count: resource.errors.count,
-                       resource: resource.class.model_name.human.downcase)
-             %>
-          </h2>
-          <ul>
-            <% @end_user.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
-
       <%= form_with model: @end_user, url: end_user_session_path, local: true do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="field mb-3">
