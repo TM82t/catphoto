@@ -2,9 +2,19 @@
   <div class="row no-gutters">
    <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto text-center shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light py-4 mb-0">ログイン</h5>
+      <div class="form-body p-4">
+      <% if flash[:alert] %>
+        <div id="error_explanation">
+          <h2>
+            <%= flash[:alert] %></br>
+            退会済みのアドレスではありませんか？</br>
+            その場合、再登録が必要です。
+          </h2>
+        </div>
+      <% end %>
 
       <%= form_with model: @end_user, url: end_user_session_path, local: true do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
+
         <div class="field mb-3">
           <%= f.label :メールアドレス %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

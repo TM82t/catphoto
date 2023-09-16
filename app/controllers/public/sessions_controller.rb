@@ -33,6 +33,8 @@ class Public::SessionsController < Devise::SessionsController
       if @end_user.valid_password?(params[:end_user][:password]) && !@end_user.is_active
         redirect_to new_end_user_registration_path
       end
+    else
+      flash[:alert]
     end
   end
 
