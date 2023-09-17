@@ -21,7 +21,7 @@ Rails.application.routes.draw do
 
   scope module: :public do
     root to: 'homes#top'
-    #get 'end_users/mypage' => 'end_users#show', as: 'mypage'
+    # get 'end_users/mypage' => 'end_users#show', as: 'mypage'
     # end_users/editのようにするとdeviseのルーティングとかぶってしまうためinformationを付け加えている。
     get 'end_users/information/edit' => 'end_users#edit', as: 'edit_information'
     patch 'end_users/information' => 'end_users#update', as: 'update_information'
@@ -30,8 +30,8 @@ Rails.application.routes.draw do
     patch 'end_users/withdraw' => 'end_users#withdraw', as: 'withdraw_end_user'
 
     resources :posts, only: [:new, :index, :show, :edit, :create, :update, :destroy] do
-     resources :post_comments, only: [:create, :destroy]
-     resource :favorites, only: [:create, :destroy]
+      resources :post_comments, only: [:create, :destroy]
+      resource :favorites, only: [:create, :destroy]
     end
 
     resources :end_users do
@@ -42,7 +42,7 @@ Rails.application.routes.draw do
       end
     end
 
-    #フォロー機能
+    # フォロー機能
     resources :end_users do
       resource :follows, only: [:create, :destroy]
       # get 'followings' => 'follows#followings', as: 'followings'
@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  #検索機能
+  # 検索機能
   get '/search', to: 'searchs#search'
 
 

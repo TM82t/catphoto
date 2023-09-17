@@ -14,7 +14,7 @@
       <% else %>
         <% if current_end_user.guest_end_user? %>
         <% else %>
-         <%= link_to "編集する", edit_information_path(end_user), class: "btn btn-primary ml-2" %>
+          <%= link_to "編集する", edit_information_path(end_user), class: "btn btn-primary ml-2" %>
         <% end %>
       <% end %>
     </div>
@@ -27,6 +27,7 @@
           <th></th>
           <th></th>
         </thead>
+
         <tbody>
           <tr>
             <td>フォロー</td>
@@ -41,16 +42,16 @@
             <td><%= link_to end_user.favorites.count, favorites_end_user_path(end_user) %></td>
           </tr>
           <tr>
-        	  <td>ユーザー名</td>
-        	  <td><%= end_user.end_user_name %></td>
+            <td>ユーザー名</td>
+            <td><%= end_user.end_user_name %></td>
           </tr>
           <tr>
             <td>メールアドレス</td>
             <td><%= end_user.email %></td>
           </tr>
           <tr>
-        	  <td>プロフィール紹介</td>
-        	  <td><%= end_user.introduction %></td>
+            <td>プロフィール紹介</td>
+            <td><%= end_user.introduction %></td>
           </tr>
         </tbody>
       </table>
@@ -73,18 +74,18 @@
         </thead>
 
         <tbody>
-        <% @posts.each do |post| %>
-          <tr>
-            <td>
-              <%= link_to post_path(post.id) do %>
-                <%= post.name %>
-              <% end %>
-            </td>
-            <td><%= post.introduction %></td>
-         </tr>
-        <% end %>
+          <% @posts.each do |post| %>
+            <tr>
+              <td>
+                <%= link_to post_path(post.id) do %>
+                  <%= post.name %>
+                <% end %>
+              </td>
+              <td><%= post.introduction %></td>
+            </tr>
+          <% end %>
         </tbody>
-     </table>
+      </table>
     </div>
   </div>
 </div>

@@ -7,12 +7,12 @@ class Public::PostCommentsController < ApplicationController
     @comment.end_user_id = current_end_user.id
     @comment.post_id = @post.id
     if @comment.save
-        redirect_to post_path(@post)
+      redirect_to post_path(@post)
     else
-        @post = Post.find(params[:post_id])
-        @post_comment = PostComment.new
-        flash.now[:alert] = "コメントを入力してから送信するボタンを押してください"
-        render 'public/posts/show'
+      @post = Post.find(params[:post_id])
+      @post_comment = PostComment.new
+      flash.now[:alert] = "コメントを入力してから送信するボタンを押してください"
+      render 'public/posts/show'
     end
   end
 

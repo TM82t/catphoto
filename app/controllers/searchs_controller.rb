@@ -12,13 +12,13 @@ class SearchsController < ApplicationController
       if method == 'perfect'
         EndUser.where(end_user_name: content)
       else
-        EndUser.where('end_user_name LIKE ?', '%'+content+'%')
+        EndUser.where('end_user_name LIKE ?', '%' + content + '%')
       end
     elsif model == 'post'
       if method == 'perfect'
         Post.where(name: content)
       else
-        Post.where('name LIKE ?', '%'+content+'%')
+        Post.where('name LIKE ?', '%' + content + '%')
       end
     end
   end

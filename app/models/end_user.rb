@@ -23,10 +23,12 @@ class EndUser < ApplicationRecord
   def follow(end_user)
     follows.find_or_create_by(followed_id: end_user.id)
   end
+  
   # フォローを外すときの処理
   def unfollow(end_user)
     follows.find_by(followed_id: end_user.id)&.destroy
   end
+  
   # フォローしているか判定
   def following?(end_user)
     followings.include?(end_user)
@@ -43,10 +45,11 @@ class EndUser < ApplicationRecord
   # ゲストログイン用
   GUEST_END_USER_EMAIL = "guest@example.com"
   def self.guest
-    find_or_create_by!(end_user_name: 'ゲスト',email: GUEST_END_USER_EMAIL) do |user|
+    find_or_create_by!(end_user_name: 'ゲスト', email: GUEST_END_USER_EMAIL) do |user|
       user.password = SecureRandom.urlsafe_base64
     end
   end
+  
   def guest_end_user?
     email == GUEST_END_USER_EMAIL
   end

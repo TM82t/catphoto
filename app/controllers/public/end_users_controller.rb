@@ -41,11 +41,6 @@ class Public::EndUsersController < ApplicationController
     @end_users = @end_user.followers
   end
 
-  #def followings
-   # @end_user = EndUser.find(params[:end_user_id])
-    #@end_users = @end_user.followings
-  #end
-
   def unsubscribe
     @end_user = current_end_user
   end
@@ -60,7 +55,7 @@ class Public::EndUsersController < ApplicationController
   private
 
   def end_user_params
-      params.require(:end_user).permit(:end_user_name, :email, :profile_photo, :introduction)
+    params.require(:end_user).permit(:end_user_name, :email, :profile_photo, :introduction)
   end
 
   def is_matching_login_end_user

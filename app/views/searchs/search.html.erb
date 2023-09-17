@@ -3,5 +3,5 @@
   <%= render 'public/end_users/index', end_users: @records %>
 <% else @model == 'posts' %>
   <h3>【投稿の検索結果】検索ワード：<%= @content %></h3>
-    <%= render 'public/posts/list', posts: @records %>
+  <%= render 'public/posts/list', posts: @records %>
 <% end %>
