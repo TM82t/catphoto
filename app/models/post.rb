@@ -8,6 +8,7 @@ class Post < ApplicationRecord
 
   validates :name, presence: true
   validates :image, presence: true
+  validates :introduction, presence: true
 
   def get_image
     if image.attached?

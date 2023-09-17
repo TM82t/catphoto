@@ -1,5 +1,6 @@
 <div class="post-detail py-5 bg-light">
   <div class="card w-75 mx-auto mt-4 shadow-lg">
+
     <%= image_tag @post.get_image, class: "card-img-top" %>
     <div class="card-body">
       <div class="row">
@@ -60,6 +61,14 @@
       </div>
       <hr>
       <div class="new-comment card-text">
+        <% if flash[:alert] %>
+          <div id="error_explanation">
+            <h2>
+              <%= flash[:alert] %>
+            </h2>
+          </div>
+        <% end %>
+        </div>
         <%= form_with model: [@post, @post_comment] do |f| %>
           <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
          <%= f.submit "送信する" %>
