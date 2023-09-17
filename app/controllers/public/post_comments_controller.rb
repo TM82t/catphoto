@@ -29,8 +29,8 @@ class Public::PostCommentsController < ApplicationController
 
   def ensure_currect_end_user
     @comment = PostComment.find(params[:id])
-    unless @comment.end_user == current_end_user
-      redirect_to posts_path, notice: "投稿者以外コメントは削除できません。"
+    unless @comment.end_user.id == current_end_user.id
+      redirect_to root_path, notice: "投稿者以外コメントは削除できません。"
     end
   end
 

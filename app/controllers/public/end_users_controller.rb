@@ -1,5 +1,6 @@
 class Public::EndUsersController < ApplicationController
-  before_action :authenticate_end_user!
+  before_action :authenticate_user!
+  before_action :is_matching_login_end_user, only: [:edit, :update]
   before_action :set_end_user, only: [:favorites, :followings, :followers]
 
   def show
@@ -60,6 +61,13 @@ class Public::EndUsersController < ApplicationController
 
   def end_user_params
       params.require(:end_user).permit(:end_user_name, :email, :profile_photo, :introduction)
+  end
+
+  def is_matching_login_end_user
+    end_user = EndUser.find(params[:id])
+    unless end_user.id == current_end_user.id
+      redirect_to root_path
+    end
   end
 
   def set_end_user

@@ -1,8 +1,9 @@
 class Public::PostsController < ApplicationController
+  before_action :ensure_currect_end_user, only: [:destroy]
 
- def new
-   @post = Post.new
- end
+  def new
+    @post = Post.new
+  end
 
   def create
     @post = Post.new(post_params)
@@ -44,5 +45,10 @@ class Public::PostsController < ApplicationController
     params.require(:post).permit(:name, :image, :introduction)
   end
 
-
+  def ensure_currect_end_user
+    @post = Post.find(params[:id])
+    unless @post.end_user.id == current_end_user.id
+      redirect_to root_path, notice: "投稿者以外は削除できません。"
+    end
+  end
 end
