@@ -17,6 +17,19 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.page(params[:page])
+
+   if params[:latest]
+     @posts = Post.latest.page(params[:page])
+   elsif params[:old]
+     @posts = Post.old.page(params[:page])
+   elsif params[:favorite_count]
+     @posts = Post.favorite_count.page(params[:page])
+   elsif params[:comment_count]
+     @posts = Post.comment_count.page(params[:page])
+   else
+     @posts = Post.page(params[:page])
+   end
+
   end
 
   def show

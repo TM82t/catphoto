@@ -10,6 +10,11 @@ class Post < ApplicationRecord
   validates :image, presence: true
   validates :introduction, presence: true
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  scope :favorite_count, -> {order(favorite: :desc)}
+  scope :comment_count, -> {order(comment: :desc)}
+
   def get_image
     if image.attached?
       image
