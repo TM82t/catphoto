@@ -12,8 +12,8 @@ class Post < ApplicationRecord
 
   scope :latest, -> {order(created_at: :desc)}
   scope :old, -> {order(created_at: :asc)}
-  scope :favorite_count, -> {order(favorite: :desc)}
-  scope :comment_count, -> {order(comment: :desc)}
+  scope :favorite_count, -> { joins(:favorites).group(:id).order('count(favorites.post_id) desc') }
+  scope :comment_count, -> { joins(:post_comments).group(:id).order('count(post_comments.post_id) desc') }
 
   def get_image
     if image.attached?

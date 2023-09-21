@@ -1,5 +1,5 @@
 class Public::EndUsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_end_user!
   before_action :is_matching_login_end_user, only: [:edit, :update]
   before_action :set_end_user, only: [:favorites, :followings, :followers]
 
