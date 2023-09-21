@@ -16,20 +16,17 @@ class Public::PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.page(params[:page])
-
-   if params[:latest]
-     @posts = Post.latest.page(params[:page])
-   elsif params[:old]
-     @posts = Post.old.page(params[:page])
-   elsif params[:favorite_count]
-     @posts = Post.favorite_count.page(params[:page])
-   elsif params[:comment_count]
-     @posts = Post.comment_count.page(params[:page])
-   else
-     @posts = Post.page(params[:page])
-   end
-
+    @posts = Post.all
+    if params[:latest]
+      @posts = @posts.latest
+    elsif params[:old]
+      @posts = @posts.old
+    elsif params[:favorite_count]
+      @posts = @posts.favorite_count
+    elsif params[:comment_count]
+      @posts = @posts.comment_count
+    end
+    @posts = Kaminari.paginate_array(@posts).page(params[:page])
   end
 
   def show
