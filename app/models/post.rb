@@ -14,16 +14,15 @@ class Post < ApplicationRecord
   scope :old, -> {order(created_at: :asc)}
   #scope :favorite_count, -> { joins(:favorites).group(:id).order('count(favorites.post_id) desc') }
   #scope :comment_count, -> { joins(:post_comments).group(:id).order('count(post_comments.post_id) desc') }
-  
+
   def self.favorite_count
     all_data = self.all
     favorite_data = all_data.joins(:favorites).group(:id).order('count(favorites.post_id) desc')
     unfavorite_data = all_data - favorite_data
     favorite_data + unfavorite_data
   end
-  
-  def self.comment_count
 
+  def self.comment_count
     all_data = self.all
     comment_data = all_data.joins(:post_comments).group(:id).order('count(post_comments.post_id) desc')
     no_comment_data = all_data - comment_data
@@ -39,12 +38,12 @@ class Post < ApplicationRecord
     end
   end
 
-  def get_image
+  def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
       image.attach(io: File.open(file_path), filename: 'defaule-image.jpg', content_type: 'image/jpg')
     end
-    image
+    image.variant(resize_to_limit: [width, height]).processed
   end
 
   def favorited_by?(end_user)

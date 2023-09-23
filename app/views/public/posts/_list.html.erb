@@ -1,13 +1,16 @@
-<%= link_to '新しい順', posts_path(latest: "true") %>
-|<%= link_to '古い順', posts_path(old: "true") %>
-|<%= link_to 'いいねの多い順', posts_path(favorite_count: "true") %>
-|<%= link_to 'コメントの多い順', posts_path(comment_count: "true") %>
+<div class="sort">
+  <li class="sort-item">並び順</li>
+    <li class="sort-item"> | <%= link_to '新しい順', posts_path(latest: "true") %> </li>
+    <li class="sort-item"> | <%= link_to '古い順', posts_path(old: "true") %> </li>
+    <li class="sort-item"> | <%= link_to 'いいねの多い順', posts_path(favorite_count: "true") %> </li>
+    <li class="sort-item"> | <%= link_to 'コメントの多い順', posts_path(comment_count: "true") %> </li>
+</div>
 
 <div class="card-list-container py-5">
   <% posts.each do |post| %>
     <div class="card w-50 mx-auto mt-4 shadow-lg">
       <%= link_to post_path(post.id) do %>
-        <%= image_tag post.get_image, class: "card-img-top"; %>
+        <%= image_tag post.get_image(300, 300), class: "card-img-top"; %>
       <% end %>
       <div class="card-body">
         <div class="row">
