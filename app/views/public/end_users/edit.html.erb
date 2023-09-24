@@ -1,13 +1,13 @@
 <section class="inner">
 	<h2 class="section-ttl">ユーザー情報編集</h2>
-	<%= form_with model: @end_user, url: update_information_path do |f| %>
+	<%= form_with model: @end_user, url: update_information_path(id: @end_user.id) do |f| %>
 		<table class="end_user_info end_user_form">
 			<thead>
 				<th></th>
 				<th></th>
 				<th></th>
 			</thead>
-			
+
 			<tbody>
 				<tr>
           <td><%= f.label :profile_photo, "プロフィール写真" %></td>

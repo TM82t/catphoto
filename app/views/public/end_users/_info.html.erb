@@ -14,7 +14,7 @@
       <% else %>
         <% if current_end_user.guest_end_user? %>
         <% else %>
-          <%= link_to "編集する", edit_information_path(end_user), class: "btn btn-primary ml-2" %>
+          <%= link_to "編集する", edit_information_path(id: end_user.id), class: "btn btn-primary ml-2" %>
         <% end %>
       <% end %>
     </div>
