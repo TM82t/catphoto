@@ -29,15 +29,6 @@ class Post < ApplicationRecord
     comment_data + no_comment_data
   end
 
-
-  def get_image
-    if image.attached?
-      image
-    else
-      'no.image.jpg'
-    end
-  end
-
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
